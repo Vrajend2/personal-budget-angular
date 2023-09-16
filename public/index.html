@@ -129,11 +129,21 @@
             </div>
     
             <div class="text-box">
-                <h1>Chart</h1>
+                <h1>PieChart</h1>
                 <p>
                     <canvas id="myChart" width="400" height="400"></canvas>
+                    
                 </p>
             </div>
+
+            <div class="text-box">
+                <h2>DoughnutChart</h2>
+                <p>
+                    <canvas id="doughnutChart"></canvas>
+                    
+                </p>
+            </div>
+        
 
         </div>
 
@@ -155,8 +165,10 @@
 </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    "<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>"
+    "<script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>"
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
 
     <script>
         var dataSource = {
@@ -164,15 +176,7 @@
               {
                  data:[25,150,75,35,45,25,25,75,25],
                  backgroundColor: [
-                 '#ffcd56',
-                 '#ff6384',
-                 '#36a2eb',
-                 '#fd6b19',
-                 "#f38b4a",
-                 "#56d798",
-                 "#ff8397",
-                 "#6970d5",
-                 "#eb3639"
+                 '#ffcd56','#ff6384','#36a2eb','#fd6b19', '#f38b4a', '#56d798', '#ff8397','#6970d5','#eb3639'
                  ],
               }
             ],
@@ -190,14 +194,21 @@
             ]
         };
         
-        function createChart() {
+               function createChart() {
             var ctx = document.getElementById("myChart").getContext("2d");
             var myPieChart = new Chart(ctx, {
               type :'pie',
               data:dataSource
             });
-        }
+        
+        
+            var ctx = document.getElementById("doughnutChart").getContext("2d");
+            var myDoughnutChart = new Chart(ctx, {
+              type: "doughnut",
+              data: dataSource,
+            });
 
+        }  
         function getBudget() {
 	       axios.get('/budget')
 	        .then (function (res) {
@@ -210,7 +221,9 @@
              });
         }
         getBudget();
-        createChart();
+        createChart();    
+        
+       
     </script>
 </body>
 </html>
