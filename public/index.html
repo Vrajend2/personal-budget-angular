@@ -129,7 +129,7 @@
             </div>
     
             <div class="text-box">
-                <h1>Free</h1>
+                <h1>Chart</h1>
                 <p>
                     <canvas id="myChart" width="400" height="400"></canvas>
                 </p>
@@ -162,19 +162,31 @@
         var dataSource = {
              datasets: [
               {
-                 data:[25,375,110],
+                 data:[25,150,75,35,45,25,25,75,25],
                  backgroundColor: [
                  '#ffcd56',
                  '#ff6384',
                  '#36a2eb',
                  '#fd6b19',
+                 "#f38b4a",
+                 "#56d798",
+                 "#ff8397",
+                 "#6970d5",
+                 "#eb3639"
                  ],
               }
             ],
             labels: [
                'Eat out',
                'Rent',
-               'Grocery'
+               'Grocery',
+               'Medical and Healthcare',
+               'Transportation',
+               'Utilities',
+               'Insurance',
+               'Childcare',
+               'Clothing',
+
             ]
         };
         
