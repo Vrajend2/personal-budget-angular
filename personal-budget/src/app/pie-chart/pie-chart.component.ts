@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -7,7 +8,11 @@ import Chart from 'chart.js/auto';
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss']
 })
-export class PieChartComponent {
+export class PieChartComponent implements OnInit {
+  constructor ( public dataService:DataService) {}
+
+  ngOnInit(): void {
+        }
 
 }
 

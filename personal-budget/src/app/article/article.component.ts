@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'pb-article',
@@ -9,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class ArticleComponent implements OnInit
  {
 
-  constructor() {}
+  constructor(public dataService:DataService) {}
 
   ngOnInit(): void {
 
 }
  }
+
+

@@ -1,6 +1,8 @@
 import { Component,AfterViewInit } from '@angular/core';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
 import Chart from 'chart.js/auto';
+import { BreadcrumbsComponent} from '../breadcrumbs/breadcrumbs.component';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'pb-homepage',
@@ -9,7 +11,8 @@ import Chart from 'chart.js/auto';
 })
 export class HomepageComponent implements AfterViewInit {
 
-  public dataSource ={
+
+  public  dataSource ={
     datasets: [
      {
         data:[25,150,75,35,45,25,25,75,25],
@@ -32,7 +35,7 @@ export class HomepageComponent implements AfterViewInit {
    ]
 };
 
- constructor(private http: HttpClient) {}
+ constructor(private http:HttpClient) {}
 
  ngAfterViewInit(): void {
    this.http.get('http://localhost:3000/budget')
@@ -48,7 +51,7 @@ export class HomepageComponent implements AfterViewInit {
 }
 
 createChart() {
-  var ctx = <HTMLCanvasElement>document.getElementById('myChart');
+  var ctx = <HTMLCanvasElement>document.getElementById('myPieChart');
   var myPieChart = new Chart(ctx, {
     type :'pie',
     data:this.dataSource
